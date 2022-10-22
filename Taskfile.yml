@@ -1,0 +1,38 @@
+---
+
+version: '3'
+
+tasks:
+  hello-tinygo-fmt:
+    cmds:
+      - go build -o 01-hello-tinygo-fmt/main-go 01-hello-tinygo-fmt/main.go
+      - strip -o 01-hello-tinygo-fmt/main-go-strip 01-hello-tinygo-fmt/main-go
+      - tinygo build -o 01-hello-tinygo-fmt/main-tinygo 01-hello-tinygo-fmt/main.go
+      - strip -o 01-hello-tinygo-fmt/main-tinygo-strip 01-hello-tinygo-fmt/main-tinygo
+      - ls -lhS 01-hello-tinygo-fmt/main-*
+    silent: true
+
+  hello-tinygo-os:
+    cmds:
+      - go build -o 01-hello-tinygo-os/main-go 01-hello-tinygo-os/main.go
+      - strip -o 01-hello-tinygo-os/main-go-strip 01-hello-tinygo-os/main-go
+      - tinygo build -o 01-hello-tinygo-os/main-tinygo 01-hello-tinygo-os/main.go
+      - strip -o 01-hello-tinygo-os/main-tinygo-strip 01-hello-tinygo-os/main-tinygo
+      - ls -lhS 01-hello-tinygo-os/main-*
+    silent: true
+
+  hello-tinygo-println:
+    cmds:
+      - go build -o 01-hello-tinygo-println/main-go 01-hello-tinygo-println/main.go
+      - strip -o 01-hello-tinygo-println/main-go-strip 01-hello-tinygo-println/main-go
+      - tinygo build -o 01-hello-tinygo-println/main-tinygo 01-hello-tinygo-println/main.go
+      - strip -o 01-hello-tinygo-println/main-tinygo-strip 01-hello-tinygo-println/main-tinygo
+      - tinygo build -gc=leaking -o 01-hello-tinygo-println/main-tinygo-gc-leaking 01-hello-tinygo-println/main.go
+      - strip -o 01-hello-tinygo-println/main-tinygo-gc-leaking-strip 01-hello-tinygo-println/main-tinygo-gc-leaking
+      - ls -lhS 01-hello-tinygo-println/main-*
+    silent: true
+
+  hello-microbit:
+    cmds:
+      - tinygo flash -size=short -target=microbit hello-microbit/main.go
+    silent: true
