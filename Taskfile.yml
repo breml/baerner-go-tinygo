@@ -34,5 +34,21 @@ tasks:
 
   hello-microbit:
     cmds:
-      - tinygo flash -size=short -target=microbit hello-microbit/main.go
+      - tinygo flash -size=short -target=microbit 02-hello-microbit/main.go
     silent: true
+
+  interrupt:
+    cmds:
+      - tinygo flash -size=short -target=microbit 03-interrupt/main.go
+    silent: true
+
+  goroutine:
+    cmds:
+      - tinygo flash -size=short -target=microbit 04-goroutine/main.go
+    silent: true
+
+  goroutine-external-led:
+    cmds:
+      - tinygo flash -size=short -target=microbit 04-goroutine-2/main.go
+    silent: true
+
