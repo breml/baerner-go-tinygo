@@ -1,3 +1,5 @@
+// https://tinygo.org/docs/concepts/compiler-internals/interrupts/
+
 package main
 
 import (
