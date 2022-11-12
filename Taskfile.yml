@@ -89,3 +89,8 @@ tasks:
     cmds:
       - tinygo flash -gc=conservative -size=short -target={{.TARGET}} ./07-gc-leaking
     silent: true
+
+  clean:
+    cmds:
+      - git clean -fx
+    slient: true
