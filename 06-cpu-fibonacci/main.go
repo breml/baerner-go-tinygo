@@ -1,6 +1,3 @@
-// programm calling a function recursively until all the stack is used,
-// printing memory statistics while doing so.
-
 package main
 
 import "time"

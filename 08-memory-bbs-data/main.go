@@ -1,8 +1,8 @@
 // programm using global memory in .bss and .data
 // printing memory statistics
 //
-// quite some trickery is necessary to prevent that the compile optimizes
-// the memory locations away.
+// quite some trickery is necessary to prevent that the compiler does not
+// optimize the memory locations away.
 
 package main
 
@@ -24,8 +24,8 @@ func main() {
 	}
 	item := time.Now().Nanosecond() % (size - 1)
 
-	println(bbsBlob[item] + 'A')
-	println(dataBlob[item] + 'A')
+	println(bbsBlob[item]+'A', " (prevent compiler optimization)")
+	println(dataBlob[item]+'A', " (prevent compiler optimization)")
 
 	m := runtime.MemStats{}
 	runtime.ReadMemStats(&m)

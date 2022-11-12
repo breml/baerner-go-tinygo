@@ -1,7 +1,11 @@
+// Management of the stack of the goroutines is different, the stack
+// can not grow on TinyGo.
+
 package main
 
 // Max value for:
 //   microbit: 183 (184, 186)
+//   notebook: 40000000
 const max = 183
 
 var funcs [2]func(int) int
