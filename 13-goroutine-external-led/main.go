@@ -3,9 +3,13 @@ package main
 import (
 	"machine"
 	"time"
+
+	"tinygo.org/x/drivers/buzzer"
 )
 
 func main() {
+	go sound()
+
 	go blinkExternal(machine.P1, 200*time.Millisecond)
 	go blinkExternal(machine.P2, 300*time.Millisecond)
 	go blinkExternal(machine.P5, 700*time.Millisecond)
@@ -46,5 +50,46 @@ func blink() {
 
 		ledrow.High()
 		time.Sleep(frequency * time.Millisecond)
+	}
+}
+
+func sound() {
+	pin := machine.P16
+	pin.Configure(machine.PinConfig{
+		Mode: machine.PinOutput,
+	})
+	buzz := buzzer.New(pin)
+
+	for {
+		buzz.Tone(buzzer.C4, 0.5)
+		buzz.Tone(buzzer.D4, 0.5)
+		buzz.Tone(buzzer.E4, 0.5)
+		buzz.Tone(buzzer.F4, 0.5)
+		buzz.Tone(buzzer.G4, 1)
+		buzz.Tone(buzzer.G4, 1)
+		buzz.Tone(buzzer.A4, 0.5)
+		buzz.Tone(buzzer.A4, 0.5)
+		buzz.Tone(buzzer.A4, 0.5)
+		buzz.Tone(buzzer.A4, 0.5)
+		buzz.Tone(buzzer.G4, 1)
+		time.Sleep((60 * time.Second / 96) * 1)
+		buzz.Tone(buzzer.A4, 0.5)
+		buzz.Tone(buzzer.A4, 0.5)
+		buzz.Tone(buzzer.A4, 0.5)
+		buzz.Tone(buzzer.A4, 0.5)
+		buzz.Tone(buzzer.G4, 1)
+		time.Sleep((60 * time.Second / 96) * 1)
+		buzz.Tone(buzzer.F4, 0.5)
+		buzz.Tone(buzzer.F4, 0.5)
+		buzz.Tone(buzzer.F4, 0.5)
+		buzz.Tone(buzzer.F4, 0.5)
+		buzz.Tone(buzzer.E4, 1)
+		buzz.Tone(buzzer.E4, 1)
+		buzz.Tone(buzzer.D4, 0.5)
+		buzz.Tone(buzzer.D4, 0.5)
+		buzz.Tone(buzzer.D4, 0.5)
+		buzz.Tone(buzzer.D4, 0.5)
+		buzz.Tone(buzzer.C4, 1)
+		time.Sleep(2 * time.Second)
 	}
 }
