@@ -44,43 +44,43 @@ tasks:
 
   hello-microbit:
     cmds:
-      - tinygo flash -size=short -target={{.TARGET}} 04-hello-microbit/main.go
+      - tinygo flash -size=short -target={{.TARGET}} ./04-hello-microbit
     silent: true
     aliases: [04]
 
   hello-microbit-heart:
     cmds:
-      - tinygo flash -size=short -target={{.TARGET}} 05-hello-microbit-heart/main.go
+      - tinygo flash -size=short -target={{.TARGET}} ./05-hello-microbit-heart
     silent: true
     aliases: [05]
 
   cpu-fibonacci:
     cmds:
-      - tinygo flash -size=short -target={{.TARGET}} 06-cpu-fibonacci/main.go
+      - tinygo flash -size=short -target={{.TARGET}} ./06-cpu-fibonacci
     silent: true
     aliases: [06]
 
   cpu-fibonacci-linux:
     cmds:
-      - tinygo run 06-cpu-fibonacci/main.go
+      - tinygo run ./06-cpu-fibonacci
     silent: true
     aliases: [06-linux]
 
   memory-baseline:
     cmds:
-      - tinygo flash -size=short -target={{.TARGET}} 07-memory-1-baseline/main.go
+      - tinygo flash -size=short -target={{.TARGET}} ./07-memory-1-baseline
     silent: true
     aliases: [07]
 
   memory-bbs-data:
     cmds:
-      - tinygo flash -size=short -target={{.TARGET}} 08-memory-bbs-data/main.go
+      - tinygo flash -size=short -target={{.TARGET}} ./08-memory-bbs-data
     silent: true
     aliases: [08]
 
   memory-heap:
     cmds:
-      - tinygo flash -size=short -target={{.TARGET}} 09-memory-heap-allocation/main.go
+      - tinygo flash -size=short -target={{.TARGET}} ./09-memory-heap-allocation
     silent: true
     aliases: [09]
 
@@ -98,31 +98,31 @@ tasks:
 
   memory-stack:
     cmds:
-      - tinygo flash -size=short -target={{.TARGET}} 11-memory-stack/main.go
+      - tinygo flash -size=short -target={{.TARGET}} ./11-memory-stack
     silent: true
     aliases: [11]
 
   goroutine:
     cmds:
-      - tinygo flash -size=short -target={{.TARGET}} 12-goroutine/main.go
+      - tinygo flash -size=short -target={{.TARGET}} ./12-goroutine
     silent: true
     aliases: [12]
 
   goroutine-external-led:
     cmds:
-      - tinygo flash -size=short -target={{.TARGET}} 13-goroutine-external-led/main.go
+      - tinygo flash -size=short -target={{.TARGET}} ./13-goroutine-external-led
     silent: true
     aliases: [13]
 
   goroutines-memory:
     cmds:
-      - tinygo flash -size=short -target={{.TARGET}} 14-goroutines-memory/main.go
+      - tinygo flash -size=short -target={{.TARGET}} ./14-goroutines-memory
     silent: true
     aliases: [14]
 
   interrupt:
     cmds:
-      - tinygo flash -size=short -target={{.TARGET}} 15-interrupt/main.go
+      - tinygo flash -size=short -target={{.TARGET}} ./15-interrupt
     silent: true
     aliases: [15]
 

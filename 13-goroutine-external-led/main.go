@@ -6,11 +6,11 @@ import (
 )
 
 func main() {
-	go blinkExternal(machine.P0, 200*time.Millisecond)
-	go blinkExternal(machine.P1, 300*time.Millisecond)
-	go blinkExternal(machine.P2, 700*time.Millisecond)
+	go blinkExternal(machine.P1, 200*time.Millisecond)
+	go blinkExternal(machine.P2, 300*time.Millisecond)
+	go blinkExternal(machine.P5, 700*time.Millisecond)
 
-	blink(500 * time.Millisecond)
+	blink()
 }
 
 func blinkExternal(pin machine.Pin, frequency time.Duration) {
@@ -27,7 +27,9 @@ func blinkExternal(pin machine.Pin, frequency time.Duration) {
 	}
 }
 
-func blink(frequency time.Duration) {
+func blink() {
+	rotarySensor := adc{Pin: machine.P0}
+
 	ledcol := machine.LED_COL_1
 	ledcol.Configure(machine.PinConfig{Mode: machine.PinOutput})
 	ledcol.Low()
@@ -35,10 +37,14 @@ func blink(frequency time.Duration) {
 	ledrow := machine.LED_ROW_1
 	ledrow.Configure(machine.PinConfig{Mode: machine.PinOutput})
 	for {
+		frequency := time.Duration(rotarySensor.Get() >> 6)
+
 		ledrow.Low()
-		time.Sleep(frequency)
+		time.Sleep(frequency * time.Millisecond)
+
+		frequency = time.Duration(rotarySensor.Get() >> 6)
 
 		ledrow.High()
-		time.Sleep(frequency)
+		time.Sleep(frequency * time.Millisecond)
 	}
 }
