@@ -18,9 +18,11 @@ func main() {
 	ledrow.Configure(machine.PinConfig{Mode: machine.PinOutput})
 	for {
 		ledrow.Low()
+		println("low")
 		time.Sleep(500 * time.Millisecond)
 
 		ledrow.High()
+		println("high")
 		time.Sleep(500 * time.Millisecond)
 	}
 }

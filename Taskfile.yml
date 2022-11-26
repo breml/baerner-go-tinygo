@@ -60,6 +60,12 @@ tasks:
     silent: true
     aliases: [06]
 
+  cpu-fibonacci-linux:
+    cmds:
+      - tinygo run 06-cpu-fibonacci/main.go
+    silent: true
+    aliases: [06-linux]
+
   memory-baseline:
     cmds:
       - tinygo flash -size=short -target={{.TARGET}} 07-memory-1-baseline/main.go
@@ -108,14 +114,24 @@ tasks:
     silent: true
     aliases: [13]
 
-  interrupt:
+  goroutines-memory:
     cmds:
-      - tinygo flash -size=short -target={{.TARGET}} 14-interrupt/main.go
+      - tinygo flash -size=short -target={{.TARGET}} 14-goroutines-memory/main.go
     silent: true
     aliases: [14]
+
+  interrupt:
+    cmds:
+      - tinygo flash -size=short -target={{.TARGET}} 15-interrupt/main.go
+    silent: true
+    aliases: [15]
 
   clean:
     cmds:
       - git clean -fx
     slient: true
 
+  cam:
+    cmds:
+      - capwindow 0
+    silent: true

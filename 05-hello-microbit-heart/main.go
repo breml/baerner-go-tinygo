@@ -2,7 +2,6 @@ package main
 
 import (
 	"image/color"
-	"time"
 
 	"tinygo.org/x/drivers/microbitmatrix"
 )
@@ -36,6 +35,5 @@ func main() {
 	for {
 		// show heart forever
 		display.Display()
-		time.Sleep(10 * time.Millisecond)
 	}
 }

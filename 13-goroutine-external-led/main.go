@@ -6,26 +6,28 @@ import (
 )
 
 func main() {
-	go blinkExternal()
+	go blinkExternal(machine.P0, 200*time.Millisecond)
+	go blinkExternal(machine.P1, 300*time.Millisecond)
+	go blinkExternal(machine.P2, 700*time.Millisecond)
 
-	blink()
+	blink(500 * time.Millisecond)
 }
 
-func blinkExternal() {
-	led := machine.P0
+func blinkExternal(pin machine.Pin, frequency time.Duration) {
+	led := pin
 	led.Configure(machine.PinConfig{Mode: machine.PinOutput})
 	led.Low()
 
 	for {
 		led.Low()
-		time.Sleep(200 * time.Millisecond)
+		time.Sleep(frequency)
 
 		led.High()
-		time.Sleep(200 * time.Millisecond)
+		time.Sleep(frequency)
 	}
 }
 
-func blink() {
+func blink(frequency time.Duration) {
 	ledcol := machine.LED_COL_1
 	ledcol.Configure(machine.PinConfig{Mode: machine.PinOutput})
 	ledcol.Low()
@@ -34,9 +36,9 @@ func blink() {
 	ledrow.Configure(machine.PinConfig{Mode: machine.PinOutput})
 	for {
 		ledrow.Low()
-		time.Sleep(500 * time.Millisecond)
+		time.Sleep(frequency)
 
 		ledrow.High()
-		time.Sleep(500 * time.Millisecond)
+		time.Sleep(frequency)
 	}
 }
