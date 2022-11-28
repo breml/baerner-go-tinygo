@@ -126,6 +126,12 @@ tasks:
     silent: true
     aliases: [15]
 
+  noop:
+    cmds:
+      - tinygo flash -size=short -target={{.TARGET}} ./99-noop
+    silent: true
+    aliases: [99]
+
   clean:
     cmds:
       - git clean -fx
