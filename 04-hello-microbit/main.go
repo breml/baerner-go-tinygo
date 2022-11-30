@@ -1,7 +1,3 @@
-// Show the example in https://play.tinygo.org/
-// Show the example in the preview in the editor
-// Show the example on real micro:bit
-
 package main
 
 import (

@@ -2,11 +2,7 @@ package main
 
 import "time"
 
-// For ~ 10 sec runtime:
-//   microbit: 33
-//   microbit-v2: 35
-//   notebook: 47 (go versus tinygo)
-const recursions = 33
+const recursions = 33 // for microbit V1, execution time ~10 seconds
 
 func main() {
 	print("result: ")

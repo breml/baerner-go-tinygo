@@ -6,10 +6,7 @@ import (
 	"time"
 )
 
-// max value
-//   microbit: 5
-//   microbit v2: 58
-const max = 5
+const max = 5 // maximum for microbit V1
 
 var m runtime.MemStats
 

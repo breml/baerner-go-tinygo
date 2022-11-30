@@ -3,10 +3,7 @@
 
 package main
 
-// Max value for:
-//   microbit: 183 (184, 186)
-//   notebook: 40000000
-const max = 183
+const max = 183 // with 184 or higher, there are out of memory panics on microbit V1
 
 var funcs [2]func(int) int
 
